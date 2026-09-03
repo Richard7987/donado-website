@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://richard7987.github.io/donado-website/sitemap.xml
