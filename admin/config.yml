@@ -12,26 +12,6 @@ media_folder: assets/img
 public_folder: /donado-website/assets/img
 
 collections:
-  - name: posts
-    label: Blog posts
-    label_singular: Blog post
-    folder: _posts
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    extension: md
-    format: yaml-frontmatter
-    fields:
-      - { name: layout, widget: hidden, default: post }
-      - { name: title, label: Title, widget: string }
-      - { name: date, label: Date, widget: datetime }
-      - { name: description, label: Summary, widget: text, required: false }
-      - { name: tags, label: Tags, widget: string, required: false, hint: "Space-separated" }
-      - { name: categories, label: Categories, widget: string, required: false, hint: "Space-separated" }
-      - { name: thumbnail, label: Thumbnail, widget: image, required: false }
-      - { name: giscus_comments, widget: hidden, default: false }
-      - { name: related_posts, widget: hidden, default: false }
-      - { name: body, label: Body, widget: markdown }
-
   - name: news
     label: News / announcements
     label_singular: News item
@@ -73,7 +53,7 @@ collections:
           - { name: permalink, widget: hidden, default: /cv/ }
           - { name: title, widget: hidden, default: cv }
           - { name: nav, widget: hidden, default: true }
-          - { name: nav_order, widget: hidden, default: 5 }
+          - { name: nav_order, widget: hidden, default: 4 }
           - { name: cv_pdf, label: CV PDF filename (in assets/pdf/), widget: string, required: false }
           - { name: description, label: Description, widget: text, required: false }
           - { name: body, label: Body (optional), widget: markdown, required: false }
@@ -97,6 +77,7 @@ collections:
               - { name: thesis, label: Thesis title, widget: string, required: false }
               - { name: now, label: Currently (alumni), widget: string, required: false }
               - { name: url, label: Link, widget: string, required: false }
+              - { name: video, label: Video URL, widget: string, required: false, hint: "YouTube or Vimeo link" }
           - name: msc
             label: MSc
             widget: list
@@ -108,6 +89,7 @@ collections:
               - { name: thesis, label: Thesis title, widget: string, required: false }
               - { name: now, label: Currently (alumni), widget: string, required: false }
               - { name: url, label: Link, widget: string, required: false }
+              - { name: video, label: Video URL, widget: string, required: false, hint: "YouTube or Vimeo link" }
           - name: bsc
             label: BSc
             widget: list
@@ -119,3 +101,20 @@ collections:
               - { name: thesis, label: Thesis title, widget: string, required: false }
               - { name: now, label: Currently (alumni), widget: string, required: false }
               - { name: url, label: Link, widget: string, required: false }
+              - { name: video, label: Video URL, widget: string, required: false, hint: "YouTube or Vimeo link" }
+
+  - name: videos
+    label: Videos
+    files:
+      - name: videos
+        label: "Fernando Donado on the Internet"
+        file: _data/videos.yml
+        fields:
+          - name: videos
+            label: Videos
+            widget: list
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: url, label: Video URL, widget: string, hint: "YouTube or Vimeo link" }
+              - { name: date, label: Date, widget: datetime, required: false }
+              - { name: description, label: Description, widget: text, required: false }

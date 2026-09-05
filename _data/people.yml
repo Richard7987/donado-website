@@ -1,11 +1,14 @@
-# Thesis students by degree. status: current | alumni. `now` and `url` are
-# optional. The entries below are placeholders pending the real list.
+# Thesis students by degree. status: current | alumni. `now`, `url`, and
+# `video` are optional. `video` is a YouTube/Vimeo link (e.g. thesis defense);
+# YouTube links get an automatic thumbnail on the people page.
+# The entries below are placeholders pending the real list.
 
 phd:
   - name: "[PhD student — current]"
     years: "2023–present"
     status: current
     thesis: "Crystallization pathways in confined non-vibrating granular systems"
+    video: "https://www.youtube.com/watch?v=REPLACE_ME"
   - name: "[PhD graduate]"
     years: "2018–2023"
     status: alumni

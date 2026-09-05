@@ -1,0 +1,5 @@
+{% assign yid = include.url | youtube_id %}
+<a href="{{ include.url }}" target="_blank" rel="noopener" class="video-thumb{% unless yid %} video-thumb-fallback{% endunless %}">
+  {% if yid %}<img src="https://img.youtube.com/vi/{{ yid }}/hqdefault.jpg" alt="" loading="lazy">{% endif %}
+  <i class="fa-solid fa-circle-play"></i>
+</a>

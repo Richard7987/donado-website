@@ -28,6 +28,7 @@ nav_order: 1
 <tbody>
 {%- for p in grp %}
 <tr>
+<td style="vertical-align:top">{% if p.video %}{% include video_thumb.liquid url=p.video %}{% endif %}</td>
 <td style="white-space:nowrap;vertical-align:top"><strong>{% if p.url %}<a href="{{ p.url }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}</strong></td>
 <td style="white-space:nowrap;vertical-align:top;color:var(--global-text-color-light)">{{ p.years }}</td>
 <td style="vertical-align:top">{% if p.thesis %}<em>{{ p.thesis }}</em>{% endif %}{% if p.now %}<br><span style="color:var(--global-text-color-light)">Now: {{ p.now }}</span>{% endif %}</td>

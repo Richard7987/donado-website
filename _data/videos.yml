@@ -1,0 +1,14 @@
+# Video appearances (talks, interviews, outreach). `url` is a YouTube/Vimeo
+# link; YouTube links get an automatic thumbnail. Placeholders below pending
+# the real list.
+
+videos:
+  - title: "[Conference talk — replace with real title]"
+    url: "https://www.youtube.com/watch?v=REPLACE_ME"
+    date: 2025-01-01
+    description: "[Event and venue]"
+
+  - title: "[Interview or outreach segment]"
+    url: "https://www.youtube.com/watch?v=REPLACE_ME"
+    date: 2024-01-01
+    description: "[Outlet and topic]"
