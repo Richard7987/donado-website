@@ -11,10 +11,11 @@ profile:
   image: prof_pic.jpg
   image_circular: false
   more_info: >
-    <p>Laboratorio de Física, Unidad Central de Laboratorios</p>
+    <p>Laboratorio de Física</p>
     <p>Instituto de Ciencias Básicas e Ingeniería, UAEH</p>
     <p>Mineral de la Reforma, Hidalgo, Mexico</p>
-    <p><a href="mailto:fernando@uaeh.edu.mx">fernando@uaeh.edu.mx</a> · +52 (771) 71 72 000 ext. 6162</p>
+    <p><a href="mailto:fernando@uaeh.edu.mx">fernando@uaeh.edu.mx</a></p>
+    <p>Tel.&nbsp;+52&nbsp;(771)&nbsp;71&nbsp;72&nbsp;000&nbsp;ext.&nbsp;6162</p>
 
 news: true
 selected_papers: true
