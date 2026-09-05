@@ -7,4 +7,4 @@ related_posts: false
 
 New paper in *Physical Review E*: "Dynamics of a quasi-two-dimensional vibrated
 granular system of geometric solids" (with L. Palacios-Razo). See
-[publications](/publications/).
+[publications]({{ "/publications/" | relative_url }}).

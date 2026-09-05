@@ -44,4 +44,4 @@ Sciences (since 2018), and I serve on the Editorial Board of *Scientific Reports
 (Springer Nature) since 2022.
 
 If you are a student interested in soft matter, granular, or active systems, see
-the [people](/people/) page and get in touch.
+the [people]({{ "/people/" | relative_url }}) page and get in touch.

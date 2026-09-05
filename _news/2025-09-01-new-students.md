@@ -9,4 +9,4 @@ related_posts: false
 *(Demo entry — replace with real news.)*
 
 The group welcomes new students this term working on confined crystallization and
-on magnetically driven active matter. Details on the [people](/people/) page.
+on magnetically driven active matter. Details on the [people]({{ "/people/" | relative_url }}) page.

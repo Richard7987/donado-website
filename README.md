@@ -41,9 +41,9 @@ publication importer.
 `_bibliography/papers.bib` is **generated**, not hand-written:
 
 ```sh
-node bin/fetch_publications.js            # 8 most recent (demo)
-node bin/fetch_publications.js --limit 0  # all works (production)
-node bin/fetch_publications.js --dry-run  # preview only
+node bin/fetch_publications.mjs            # 8 most recent (demo)
+node bin/fetch_publications.mjs --limit 0  # all works (production)
+node bin/fetch_publications.mjs --dry-run  # preview only
 ```
 
 It reads the professor's ORCID (`0000-0002-7032-3265`), takes the works that have
@@ -94,7 +94,7 @@ the `gh-pages` branch. In repo **Settings → Pages**, set the source to
 3. `admin/config.yml`: change `repo:` to the new `owner/repo`; update
    `public_folder` if `baseurl` changed; add the OAuth `base_url` (see above).
 4. Settings → Pages → source `gh-pages`.
-5. Re-run `node bin/fetch_publications.js --limit 0` for the full list.
+5. Re-run `node bin/fetch_publications.mjs --limit 0` for the full list.
 6. Fill in the real data: `_data/people.yml`, replace the demo blog posts, swap
    `assets/img/prof_pic.jpg` if a higher-res photo is available, set the CV PDF.
 

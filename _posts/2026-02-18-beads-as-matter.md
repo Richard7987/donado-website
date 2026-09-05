@@ -55,5 +55,5 @@ rearrange a cage of neighbors. When that ratio is large, the pile flows and
 orders; when it drops below roughly one, motion arrests. A slow, staggered cooling
 schedule keeps the system just above that threshold for as long as possible — and,
 in our experiments, that is exactly when the best crystals grow. The
-[next post](/blog/2026/cooling-crystals/) works through that idea with a bit of
+[next post]({% post_url 2026-03-24-cooling-crystals %}) works through that idea with a bit of
 math.
