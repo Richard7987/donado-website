@@ -1,4 +1,4 @@
-# Journal labels used by the `abbr` field in papers.bib. `color` tints the badge.
+# Journal `abbr` values used in papers.bib.
 "PRE":
   url: https://journals.aps.org/pre/
   color: "#1b3a5c"

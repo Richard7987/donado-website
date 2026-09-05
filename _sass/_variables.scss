@@ -18,21 +18,19 @@ $green-color-lime: #b7d12a !default;
 $green-color-dark: #009f06 !default;
 $green-color-light: #ddffdd !default;
 $green-color-bright: #11d68b !default;
-// --- Site palette: navy / khaki / sand -------------------------------------
-$navy-color: #1b3a5c; // primary accent: links, navbar, headings
-$navy-dark: #12283f; // footer, deep accents
-$navy-light: #7fa8c9; // accent on dark backgrounds
-$khaki-color: #8a8256; // secondary accent: year badges, highlight
-$khaki-light: #b7ad81; // khaki on dark backgrounds
-$sand-color: #f3ede1; // page background (light mode)
-$sand-dark: #14181c; // page background (dark mode)
+// Site palette: navy / khaki / sand.
+$navy-color: #1b3a5c;
+$navy-dark: #12283f;
+$navy-light: #7fa8c9;
+$khaki-color: #8a8256;
+$khaki-light: #b7ad81;
+$sand-color: #f3ede1;
+$sand-dark: #14181c;
 
-// al-folio uses $purple-color as the light-mode accent and $cyan-color as the
-// dark-mode accent. Point both at the navy so the theme colour is consistent.
+// al-folio's accent is $purple-color (light) / $cyan-color (dark); redirect both.
 $purple-color: $navy-color;
 $cyan-color: $navy-light;
 $light-cyan-color: color.adjust($cyan-color, $lightness: 15%);
-// -------------------------------------------------------------------------------
 
 $light-purple-color: color.adjust($purple-color, $lightness: 25%);
 $pink-color: #f92080 !default;

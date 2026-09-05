@@ -1,9 +1,5 @@
-# Students supervised by Fernando Donado, grouped by degree.
-#
-# ⚠️ DEMO DATA — the entries below are placeholders. Fernando's CV records the
-# totals (5 PhD, 3 MSc, 7 BSc completed) but not the names. Replace with the real
-# list: name, years, status (current | alumni), thesis title, and — for alumni —
-# where they are now. `url` is optional (personal site / Scholar / ORCID).
+# Thesis students by degree. status: current | alumni. `now` and `url` are
+# optional. The entries below are placeholders pending the real list.
 
 phd:
   - name: "[PhD student — current]"

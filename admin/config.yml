@@ -1,16 +1,12 @@
-# Sveltia CMS configuration — https://sveltiacms.app/en/docs/
-#
-# DEMO: `repo` points at the demo mirror and auth is "Sign In with Token" (a
-# GitHub PAT), so no OAuth server is needed. When migrating to the professor's
-# account, change `repo` and add a `base_url:` pointing to a deployed
-# sveltia-cms-auth worker — see README, "Migrating to the professor's account".
+# Sveltia CMS. Auth is "Sign In with Token" (a GitHub PAT); for a hosted OAuth
+# flow add base_url here — see README, "Migrating to the professor's account".
 
 backend:
   name: github
   repo: Richard7987/donado-website
   branch: main
 
-publish_mode: simple # commit straight to `main` — simplest for one editor
+publish_mode: simple
 
 media_folder: assets/img
 public_folder: /donado-website/assets/img

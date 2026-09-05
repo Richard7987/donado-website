@@ -2,9 +2,7 @@ name: Deploy site
 
 on:
   push:
-    branches:
-      - master
-      - main
+    branches: [main, master]
     paths:
       - "assets/**"
       - "**.bib"
@@ -17,9 +15,7 @@ on:
       - "Gemfile.lock"
       - "!README.md"
   pull_request:
-    branches:
-      - master
-      - main
+    branches: [main, master]
     paths:
       - "assets/**"
       - "**.bib"
@@ -38,25 +34,24 @@ permissions:
 
 jobs:
   deploy:
-    # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3"
           bundler-cache: true
-      - name: Install and Build 🔧
+      - name: Build
         run: |
           export JEKYLL_ENV=production
           bundle exec jekyll build
-      - name: Purge unused CSS 🧹
+      - name: Purge unused CSS
         run: |
           npm install -g purgecss
           purgecss -c purgecss.config.js
-      - name: Deploy 🚀
+      - name: Deploy
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
         with:

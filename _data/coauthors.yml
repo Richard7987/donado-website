@@ -1,7 +1,4 @@
-# Frequent collaborators. jekyll-scholar matches the lowercased family name;
-# `firstname` lists the initial/spelled-out variants that appear in papers.bib so
-# they render consistently. Add `url:` (personal page / Scholar / ORCID) as they
-# are confirmed — leaving it blank just means the name is not linked.
+# Keyed by lowercased family name. `url` links the name when set.
 
 "escobar":
   - firstname: ["A.", "Alfredo"]

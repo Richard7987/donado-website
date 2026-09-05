@@ -156,12 +156,8 @@ html[data-theme-setting="light"] {
   }
 }
 
-/*******************************************************************************
- * Palette overrides — navy / khaki / sand.
- * Appended after al-folio's defaults so these win. Only surface colours are
- * touched; the accent ($purple-color / $cyan-color) is redirected to navy in
- * _variables.scss.
- ******************************************************************************/
+// Surface colour overrides (navy / khaki / sand). Must follow al-folio's
+// defaults above to take effect. Accent is set in _variables.scss.
 
 :root {
   --global-bg-color: #{$sand-color};

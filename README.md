@@ -41,9 +41,9 @@ publication importer.
 `_bibliography/papers.bib` is **generated**, not hand-written:
 
 ```sh
-node bin/fetch_publications.mjs            # 8 most recent (demo)
-node bin/fetch_publications.mjs --limit 0  # all works (production)
-node bin/fetch_publications.mjs --dry-run  # preview only
+node bin/fetch_publications.mjs            # all works with a DOI
+node bin/fetch_publications.mjs --limit 8  # 8 most recent only
+node bin/fetch_publications.mjs --dry-run  # preview, don't write
 ```
 
 It reads the professor's ORCID (`0000-0002-7032-3265`), takes the works that have
