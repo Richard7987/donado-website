@@ -55,6 +55,14 @@ To add a paper that isn't in ORCID yet, paste a BibTeX block into
 `_bibliography/papers.bib` by hand — re-running the script later will overwrite the
 file, so add it to ORCID too.
 
+**Automatic weekly refresh.** `.github/workflows/refresh-publications.yml` runs the
+importer every Monday. If ORCID has something new, it commits the updated
+`papers.bib` and triggers a rebuild — so a new paper appears on the site on its own
+within a week of reaching ORCID (no one has to touch anything). It can also be run
+on demand from the repo's **Actions** tab. This depends on the paper being **in
+ORCID with a DOI**; most publishers push there automatically via Crossref, but the
+author may need to accept/add it once in orcid.org.
+
 ## Content editing (Sveltia CMS)
 
 `/donado-website/admin/` — a git-based CMS. Editors fill in forms; each save is a

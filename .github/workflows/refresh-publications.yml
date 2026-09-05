@@ -1,0 +1,40 @@
+name: Refresh publications
+
+# Pulls the publication list from ORCID once a week and, if anything changed,
+# commits the new _bibliography/papers.bib and triggers a site rebuild.
+# New papers show up on the site automatically within a week of reaching ORCID.
+# Can also be run on demand from the Actions tab ("Run workflow").
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Fetch from ORCID + Crossref
+        run: node bin/fetch_publications.mjs --limit 0
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- _bibliography/papers.bib; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _bibliography/papers.bib
+          git commit -m "Auto: refresh publications from ORCID"
+          git push
+          gh workflow run "Deploy site" --ref "${GITHUB_REF_NAME}"
+        env:
+          GH_TOKEN: ${{ github.token }}
