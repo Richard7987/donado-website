@@ -1,0 +1,124 @@
+# Sveltia CMS configuration — https://sveltiacms.app/en/docs/
+#
+# DEMO: `repo` points at the demo mirror and auth is "Sign In with Token" (a
+# GitHub PAT), so no OAuth server is needed. When migrating to the professor's
+# account, change `repo` and add a `base_url:` pointing to a deployed
+# sveltia-cms-auth worker — see README, "Migrating to the professor's account".
+
+backend:
+  name: github
+  repo: Richard7987/donado-website
+  branch: main
+
+publish_mode: simple # commit straight to `main` — simplest for one editor
+
+media_folder: assets/img
+public_folder: /donado-website/assets/img
+
+collections:
+  - name: posts
+    label: Blog posts
+    label_singular: Blog post
+    folder: _posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: md
+    format: yaml-frontmatter
+    fields:
+      - { name: layout, widget: hidden, default: post }
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime }
+      - { name: description, label: Summary, widget: text, required: false }
+      - { name: tags, label: Tags, widget: string, required: false, hint: "Space-separated" }
+      - { name: categories, label: Categories, widget: string, required: false, hint: "Space-separated" }
+      - { name: thumbnail, label: Thumbnail, widget: image, required: false }
+      - { name: giscus_comments, widget: hidden, default: false }
+      - { name: related_posts, widget: hidden, default: false }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: news
+    label: News / announcements
+    label_singular: News item
+    folder: _news
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: md
+    format: yaml-frontmatter
+    fields:
+      - { name: layout, widget: hidden, default: post }
+      - { name: title, label: Title, widget: string, required: false, hint: "Leave empty for a one-line item" }
+      - { name: date, label: Date, widget: datetime }
+      - { name: inline, label: One-line item, widget: boolean, default: true }
+      - { name: related_posts, widget: hidden, default: false }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: pages
+    label: Pages
+    editor: { preview: false }
+    files:
+      - name: about
+        label: About (home page)
+        file: _pages/about.md
+        fields:
+          - { name: layout, widget: hidden, default: about }
+          - { name: title, widget: hidden, default: about }
+          - { name: permalink, widget: hidden, default: / }
+          - { name: subtitle, label: Subtitle (under the name), widget: text }
+          - { name: news, widget: hidden, default: true }
+          - { name: selected_papers, widget: hidden, default: true }
+          - { name: social, widget: hidden, default: true }
+          - { name: body, label: Biography, widget: markdown }
+      - name: cv
+        label: CV page (intro + PDF link)
+        file: _pages/cv.md
+        fields:
+          - { name: layout, widget: hidden, default: cv }
+          - { name: permalink, widget: hidden, default: /cv/ }
+          - { name: title, widget: hidden, default: cv }
+          - { name: nav, widget: hidden, default: true }
+          - { name: nav_order, widget: hidden, default: 5 }
+          - { name: cv_pdf, label: CV PDF filename (in assets/pdf/), widget: string, required: false }
+          - { name: description, label: Description, widget: text, required: false }
+          - { name: body, label: Body (optional), widget: markdown, required: false }
+
+  - name: people
+    label: People
+    files:
+      - name: people
+        label: Students by degree
+        file: _data/people.yml
+        description: "`status` is current or alumni. `now` and `link` apply to alumni."
+        fields:
+          - name: phd
+            label: PhD
+            widget: list
+            required: false
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: years, label: Years, widget: string, hint: "2019–2024 or 2023–present" }
+              - { name: status, label: Status, widget: select, options: [current, alumni] }
+              - { name: thesis, label: Thesis title, widget: string, required: false }
+              - { name: now, label: Currently (alumni), widget: string, required: false }
+              - { name: url, label: Link, widget: string, required: false }
+          - name: msc
+            label: MSc
+            widget: list
+            required: false
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: years, label: Years, widget: string, hint: "2019–2024 or 2023–present" }
+              - { name: status, label: Status, widget: select, options: [current, alumni] }
+              - { name: thesis, label: Thesis title, widget: string, required: false }
+              - { name: now, label: Currently (alumni), widget: string, required: false }
+              - { name: url, label: Link, widget: string, required: false }
+          - name: bsc
+            label: BSc
+            widget: list
+            required: false
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: years, label: Years, widget: string, hint: "2019–2024 or 2023–present" }
+              - { name: status, label: Status, widget: select, options: [current, alumni] }
+              - { name: thesis, label: Thesis title, widget: string, required: false }
+              - { name: now, label: Currently (alumni), widget: string, required: false }
+              - { name: url, label: Link, widget: string, required: false }

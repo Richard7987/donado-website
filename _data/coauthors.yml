@@ -1,0 +1,44 @@
+# Frequent collaborators. jekyll-scholar matches the lowercased family name;
+# `firstname` lists the initial/spelled-out variants that appear in papers.bib so
+# they render consistently. Add `url:` (personal page / Scholar / ORCID) as they
+# are confirmed — leaving it blank just means the name is not linked.
+
+"escobar":
+  - firstname: ["A.", "Alfredo"]
+    url:
+
+"moctezuma":
+  - firstname: ["R. E.", "Rosario E.", "Rosario Elena"]
+    url:
+
+"carrillo-estrada":
+  - firstname: ["J. L.", "José Luis"]
+    url:
+
+"pacheco-vázquez":
+  - firstname: ["Felipe", "F."]
+    url:
+
+"castañeda-priego":
+  - firstname: ["Ramón", "R."]
+    url:
+
+"sevilla":
+  - firstname: ["Francisco J.", "F. J."]
+    url:
+
+"vidales-hernández":
+  - firstname: ["C. G.", "César G."]
+    url:
+
+"palacios-razo":
+  - firstname: ["L.", "Leonardo"]
+    url:
+
+"lópez-gonzález":
+  - firstname: ["Francisco", "F."]
+    url:
+
+"elizondo-aguilera":
+  - firstname: ["Luis Fernando", "L. F."]
+    url:

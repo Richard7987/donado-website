@@ -1,0 +1,79 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Fernando Donado Pérez
+    - name: Position
+      value: Professor-Researcher (Titular C), UAEH — since May 2003
+    - name: Field
+      value: Soft matter · granular systems · magnetic fluids · active matter
+    - name: ORCID
+      value: <a href="https://orcid.org/0000-0002-7032-3265">0000-0002-7032-3265</a>
+    - name: Email
+      value: fernando@uaeh.edu.mx
+
+- title: Education
+  type: time_table
+  contents:
+    - title: PhD in Sciences (Physics)
+      institution: Benemérita Universidad Autónoma de Puebla (BUAP), Mexico
+      year: 2002
+    - title: MSc in Sciences (Physics)
+      institution: Benemérita Universidad Autónoma de Puebla (BUAP), Mexico
+      year: 1998
+    - title: BSc in Physics
+      institution: Benemérita Universidad Autónoma de Puebla (BUAP), Mexico
+      year: 1998
+
+- title: Appointments
+  type: time_table
+  contents:
+    - title: Professor-Researcher (Titular C)
+      institution: Academic Area of Mathematics and Physics, UAEH
+      year: 2003 – present
+      description:
+        - Founder of the BSc in Physics and Advanced Technology
+        - Founder of the MSc in Physics and Advanced Technology
+
+- title: Research Lines
+  type: nested_list
+  contents:
+    - title: Fluidized granular matter
+      items:
+        - Crystallization and the glass transition under confinement and cooling
+        - Melting and superheating of vibrated granular layers
+        - Active matter and intruder dynamics in driven granular media
+    - title: Magnetic fluids under time-dependent magnetic fields
+      items:
+        - Rheology of magnetic (bipolar) dispersions
+        - Field-tuned self-assembly and transport
+
+- title: Honors and Memberships
+  type: time_table
+  contents:
+    - year: 2018 – present
+      items:
+        - Member, Mexican Academy of Sciences
+    - year: ongoing
+      items:
+        - Sistema Nacional de Investigadores (SNI), Level II
+    - year: 2022 – present
+      items:
+        - Editorial Board, <em>Scientific Reports</em> (Springer Nature)
+
+- title: Research Training
+  type: list
+  contents:
+    - Completed thesis supervision — <u>PhD:</u> 5 · <u>MSc:</u> 3 · <u>BSc:</u> 7
+
+- title: Academic Output
+  type: list
+  contents:
+    - 51 JCR research articles · 2 book chapters (see the <a href="/publications/">publications</a> page)
+
+- title: Profiles
+  type: list
+  contents:
+    - <a href="https://orcid.org/0000-0002-7032-3265">ORCID</a> ·
+      <a href="https://scholar.google.com/citations?user=828OxLIAAAAJ">Google Scholar</a> ·
+      Scopus Author ID 7801413226 · ResearcherID V-8722-2018

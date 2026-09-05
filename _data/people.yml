@@ -1,0 +1,40 @@
+# Students supervised by Fernando Donado, grouped by degree.
+#
+# ⚠️ DEMO DATA — the entries below are placeholders. Fernando's CV records the
+# totals (5 PhD, 3 MSc, 7 BSc completed) but not the names. Replace with the real
+# list: name, years, status (current | alumni), thesis title, and — for alumni —
+# where they are now. `url` is optional (personal site / Scholar / ORCID).
+
+phd:
+  - name: "[PhD student — current]"
+    years: "2023–present"
+    status: current
+    thesis: "Crystallization pathways in confined non-vibrating granular systems"
+  - name: "[PhD graduate]"
+    years: "2018–2023"
+    status: alumni
+    thesis: "Active matter in magnetically driven granular media"
+    now: "Postdoctoral researcher, [institution]"
+    url:
+
+msc:
+  - name: "[MSc student — current]"
+    years: "2024–present"
+    status: current
+    thesis: "Superheating and melting of vibrated granular layers"
+  - name: "[MSc graduate]"
+    years: "2020–2022"
+    status: alumni
+    thesis: "Rheology of magnetic dispersions under alternating fields"
+    now: "PhD student, [institution]"
+
+bsc:
+  - name: "[BSc student — current]"
+    years: "2025–present"
+    status: current
+    thesis: "Tribocharging of granular assemblies under acoustic vibration"
+  - name: "[BSc graduate]"
+    years: "2021–2022"
+    status: alumni
+    thesis: "Intruder dynamics in a two-dimensional granular medium"
+    now: "MSc student, Physics and Advanced Technology, UAEH"

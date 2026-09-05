@@ -1,0 +1,28 @@
+# Journal labels used by the `abbr` field in papers.bib. `color` tints the badge.
+"PRE":
+  url: https://journals.aps.org/pre/
+  color: "#1b3a5c"
+
+"PRL":
+  url: https://journals.aps.org/prl/
+  color: "#1b3a5c"
+
+"Physica A":
+  url: https://www.sciencedirect.com/journal/physica-a-statistical-mechanics-and-its-applications
+  color: "#8a8256"
+
+"Sci. Rep.":
+  url: https://www.nature.com/srep/
+  color: "#8a8256"
+
+"Soft Matter":
+  url: https://pubs.rsc.org/en/journals/journalissues/sm
+  color: "#8a8256"
+
+"Phys. Scr.":
+  url: https://iopscience.iop.org/journal/1402-4896
+  color: "#8a8256"
+
+"Annu. Rev. CMP":
+  url: https://www.annualreviews.org/journal/conmatphys
+  color: "#1b3a5c"
