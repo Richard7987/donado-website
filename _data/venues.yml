@@ -26,3 +26,11 @@
 "Annu. Rev. CMP":
   url: https://www.annualreviews.org/journal/conmatphys
   color: "#1b3a5c"
+
+"Rev. Mex. Fís.":
+  url: https://rmf.smf.mx/ojs/rmf
+  color: "#8a8256"
+
+"Rev. Mex. Fís. E":
+  url: https://rmf.smf.mx/ojs/rmf-e
+  color: "#8a8256"

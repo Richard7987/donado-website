@@ -51,9 +51,12 @@ a DOI, and pulls a full BibTeX record (with co-authors) from Crossref for each.
 Entries whose cite key is in the `SELECTED` list at the top of the script get
 `selected={true}` and appear on the home page.
 
-To add a paper that isn't in ORCID yet, paste a BibTeX block into
-`_bibliography/papers.bib` by hand — re-running the script later will overwrite the
-file, so add it to ORCID too.
+`_bibliography/papers.bib` is regenerated wholesale on every run, so **do not
+hand-edit it**. Put entries the importer can't produce — anything without a DOI —
+in **`_bibliography/manual.bib`**; the script appends that file verbatim after the
+ORCID entries, so those survive re-runs. It currently holds 6 older
+*Revista Mexicana de Física* papers that have no DOI. Total on the site: 45 (ORCID)
++ 6 (manual) = 51.
 
 **Automatic weekly refresh.** `.github/workflows/refresh-publications.yml` runs the
 importer every Monday. If ORCID has something new, it commits the updated
