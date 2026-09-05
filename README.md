@@ -1,115 +1,85 @@
 # Fernando Donado — academic website (demo)
 
-Personal/academic site for **Dr. Fernando Donado Pérez** (Professor-Researcher,
-Academic Area of Mathematics and Physics, UAEH).
+Site for Dr. Fernando Donado Pérez (Professor-Researcher, Academic Area of
+Mathematics and Physics, UAEH). Built on [al-folio](https://github.com/alshedivat/al-folio)
+(MIT). This is a demo under `Richard7987/` for approval; content marked *"demo"*
+is placeholder. Production moves to `ferdonadoperez-star`.
 
-Built on the [al-folio](https://github.com/alshedivat/al-folio) Jekyll theme
-(MIT). This repository is a **demo for approval** — content marked *"demo"* is
-placeholder text to be replaced once the professor signs off on structure and
-style. It lives under `Richard7987/` for now; the production site will move to his
-own GitHub account (`ferdonadoperez-star`).
-
-## What's here
+## Structure
 
 | Section | Source |
 |---|---|
 | Home / bio | `_pages/about.md` |
-| People (students) | `_pages/people.md` + `_data/people.yml` |
-| Publications | `_bibliography/papers.bib` (generated — see below) |
-| Blog (outreach) | `_posts/` |
+| People | `_pages/people.md`, `_data/people.yml` |
+| Publications | `_bibliography/papers.bib` (generated) |
+| Videos | `_pages/videos.md`, `_data/videos.yml` |
 | News | `_news/` |
-| CV | `_pages/cv.md` + `_data/cv.yml` |
-| Colours / theme | `_sass/_variables.scss`, `_sass/_themes.scss` (navy / khaki / sand) |
-| CMS | `admin/` (Sveltia CMS) |
+| CV | `_pages/cv.md`, `_data/cv.yml` |
+| Theme | `_sass/_variables.scss`, `_sass/_themes.scss` (navy / khaki / sand) |
+| CMS | `admin/` (Sveltia) |
 
-## Running locally
+`_pages/blog.md` and `_posts/` still exist (`nav: false`) but are not linked
+anywhere; blog was replaced by Videos.
 
-No Ruby on the machine? There's a `shell.nix`:
+## Local build
 
 ```sh
 nix-shell
-bundle install          # first time only
+bundle install
 bundle exec jekyll serve --livereload
 # http://localhost:4000/donado-website/
 ```
 
-`imagemagick` and `nodejs` are included in the shell for responsive images and the
-publication importer.
-
 ## Publications
 
-`_bibliography/papers.bib` is **generated**, not hand-written:
+Generated from ORCID (`0000-0002-7032-3265`) + Crossref, not hand-written:
 
 ```sh
 node bin/fetch_publications.mjs            # all works with a DOI
-node bin/fetch_publications.mjs --limit 8  # 8 most recent only
+node bin/fetch_publications.mjs --limit 8  # most recent only
 node bin/fetch_publications.mjs --dry-run  # preview, don't write
 ```
 
-It reads the professor's ORCID (`0000-0002-7032-3265`), takes the works that have
-a DOI, and pulls a full BibTeX record (with co-authors) from Crossref for each.
-Entries whose cite key is in the `SELECTED` list at the top of the script get
-`selected={true}` and appear on the home page.
+Entries listed in `SELECTED` at the top of the script get `selected={true}` and
+show on the home page. `papers.bib` is overwritten on every run — DOI-less
+entries go in `_bibliography/manual.bib` instead, which is appended verbatim.
 
-`_bibliography/papers.bib` is regenerated wholesale on every run, so **do not
-hand-edit it**. Put entries the importer can't produce — anything without a DOI —
-in **`_bibliography/manual.bib`**; the script appends that file verbatim after the
-ORCID entries, so those survive re-runs. It currently holds 6 older
-*Revista Mexicana de Física* papers that have no DOI. Total on the site: 45 (ORCID)
-+ 6 (manual) = 51.
+`.github/workflows/refresh-publications.yml` runs the importer every Monday and
+commits + redeploys if ORCID has something new. Requires the paper to be in
+ORCID with a DOI.
 
-**Automatic weekly refresh.** `.github/workflows/refresh-publications.yml` runs the
-importer every Monday. If ORCID has something new, it commits the updated
-`papers.bib` and triggers a rebuild — so a new paper appears on the site on its own
-within a week of reaching ORCID (no one has to touch anything). It can also be run
-on demand from the repo's **Actions** tab. This depends on the paper being **in
-ORCID with a DOI**; most publishers push there automatically via Crossref, but the
-author may need to accept/add it once in orcid.org.
+## Editing (Sveltia CMS)
 
-## Content editing (Sveltia CMS)
+`/admin/`. Collections: News, Pages (about + CV), People, Videos. Each save is
+a commit; the site redeploys automatically.
 
-`/donado-website/admin/` — a git-based CMS. Editors fill in forms; each save is a
-commit. Collections: **Blog posts**, **News**, **Pages** (about + CV intro),
-**People**.
-
-- **Demo auth:** on the login screen click **"Sign In with Token"** and paste a
-  GitHub [personal access token](https://github.com/settings/tokens) with `repo`
-  scope. Nothing else to set up.
-- **Production auth** (so the professor just clicks "Sign in with GitHub"): deploy
+- Demo login: "Sign In with Token" + a GitHub [PAT](https://github.com/settings/tokens)
+  with `repo` scope.
+- Production login (one click, "Sign in with GitHub"): deploy
   [`sveltia/sveltia-cms-auth`](https://github.com/sveltia/sveltia-cms-auth) to
-  Cloudflare Workers (free), register a GitHub OAuth App, and add
-  `base_url: https://<your-worker>.workers.dev` to `admin/config.yml`.
+  Cloudflare Workers and add `base_url:` to `admin/config.yml`.
 
-Publications are **not** editable through the CMS — use the importer script above.
+Publications are not editable in the CMS — use the importer.
 
 ## Deployment
 
-GitHub Pages, via the al-folio-provided workflow **`.github/workflows/deploy.yml`**
-(Ruby 3.3). On every push to `main` it builds with Jekyll and pushes `_site/` to
-the `gh-pages` branch. In repo **Settings → Pages**, set the source to
-`gh-pages` / `/ (root)`.
+`.github/workflows/deploy.yml` builds with Jekyll (Ruby 3.3) and pushes `_site/`
+to `gh-pages` on every push to `main`. Settings → Pages → source `gh-pages`.
 
-> **Maintenance note.** al-folio cannot be built by GitHub Pages' native Jekyll —
-> it needs ~13 plugins outside the Pages allow-list (`jekyll-scholar`,
-> `jekyll-imagemagick`, `jekyll-archives`, …). The site therefore depends on the
-> Actions workflow. If GitHub deprecates an action version or the Ruby setup, the
-> site stops rebuilding until `deploy.yml` is updated. This trade-off was made
-> deliberately to keep al-folio's publications-from-BibTeX machinery.
+al-folio needs plugins outside the GitHub Pages allow-list (`jekyll-scholar`,
+`jekyll-imagemagick`, …), so it cannot build without this workflow — a
+deliberate trade-off to keep BibTeX-driven publications.
 
 ## Migrating to the professor's account
 
-1. Create `ferdonadoperez-star/<repo>` and push this repo to it.
-2. `_config.yml`: set `url:` and `baseurl:` for the new location
-   (`https://ferdonadoperez-star.github.io` + `/<repo>`, or the custom domain with
-   empty `baseurl`).
-3. `admin/config.yml`: change `repo:` to the new `owner/repo`; update
-   `public_folder` if `baseurl` changed; add the OAuth `base_url` (see above).
+1. Push this repo to `ferdonadoperez-star/<repo>`.
+2. `_config.yml`: update `url` and `baseurl`.
+3. `admin/config.yml`: update `repo`, `public_folder`, add OAuth `base_url`.
 4. Settings → Pages → source `gh-pages`.
-5. Re-run `node bin/fetch_publications.mjs --limit 0` for the full list.
-6. Fill in the real data: `_data/people.yml`, replace the demo blog posts, swap
-   `assets/img/prof_pic.jpg` if a higher-res photo is available, set the CV PDF.
+5. `node bin/fetch_publications.mjs` for the full list.
+6. Replace placeholders: `_data/people.yml`, `_data/videos.yml`, the demo blog
+   posts, `assets/img/prof_pic.jpg`, the CV PDF.
 
 ## Credit
 
-Theme: [al-folio](https://github.com/alshedivat/al-folio) by Maruan Al-Shedivat
-and contributors, MIT License (`LICENSE`).
+Theme: [al-folio](https://github.com/alshedivat/al-folio), MIT (`LICENSE`).
