@@ -230,7 +230,6 @@ exclude:
   - package-lock.json
   - purgecss.config.js
   - README.md
-  - shell.nix
   - vendor
   - .github/
 keep_files:

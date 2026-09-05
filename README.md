@@ -23,8 +23,9 @@ anywhere; blog was replaced by Videos.
 
 ## Local build
 
+Requires Ruby (see `Gemfile`).
+
 ```sh
-nix-shell
 bundle install
 bundle exec jekyll serve --livereload
 # http://localhost:4000/donado-website/
